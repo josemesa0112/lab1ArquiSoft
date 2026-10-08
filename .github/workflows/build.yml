@@ -110,12 +110,12 @@ jobs:
           #Set artifact name
           name: artifact
           #From this path
-          path: target/lab2p2026.jar
+          path: target/lab1arquisoft.jar
 
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: jose2830/lab2p2026
+          image: jose2830/lab1arquisoft
           tags: latest
           registry: docker.io
           dockerfile: Dockerfile
