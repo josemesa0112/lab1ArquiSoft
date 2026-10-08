@@ -113,7 +113,7 @@ jobs:
           path: target/lab1arquisoft.jar
 
       - name: Build & push Docker image
-        uses: mr-smithers-excellent/docker-build-push@v6
+        uses: mr-smithers-excellent/docker-build-push@05b44e1dd9e03f78e8689bd1a61c750f17907ffe # v6.11
         with:
           image: jose2830/lab1arquisoft
           tags: latest
