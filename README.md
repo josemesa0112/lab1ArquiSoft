@@ -1,3 +1,15 @@
+[![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=josemesa0112_lab1ArquiSoft&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=josemesa0112_lab1ArquiSoft)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=josemesa0112_lab1ArquiSoft&metric=coverage)](https://sonarcloud.io/summary/new_code?id=josemesa0112_lab1ArquiSoft)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=josemesa0112_lab1ArquiSoft&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=josemesa0112_lab1ArquiSoft)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=josemesa0112_lab1ArquiSoft&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=josemesa0112_lab1ArquiSoft)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=josemesa0112_lab1ArquiSoft&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=josemesa0112_lab1ArquiSoft)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=josemesa0112_lab1ArquiSoft&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=josemesa0112_lab1ArquiSoft)
+[![Maintainability issues](https://sonarcloud.io/api/project_badges/measure?project=josemesa0112_lab1ArquiSoft&metric=software_quality_maintainability_issues)](https://sonarcloud.io/summary/new_code?id=josemesa0112_lab1ArquiSoft)
+[![Reliability issues](https://sonarcloud.io/api/project_badges/measure?project=josemesa0112_lab1ArquiSoft&metric=software_quality_reliability_issues)](https://sonarcloud.io/summary/new_code?id=josemesa0112_lab1ArquiSoft)
+[![Security issues](https://sonarcloud.io/api/project_badges/measure?project=josemesa0112_lab1ArquiSoft&metric=software_quality_security_issues)](https://sonarcloud.io/summary/new_code?id=josemesa0112_lab1ArquiSoft)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=josemesa0112_lab1ArquiSoft&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=josemesa0112_lab1ArquiSoft)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=josemesa0112_lab1ArquiSoft&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=josemesa0112_lab1ArquiSoft)
+
 # lab1ArquiSoft
 
 Primer laboratorio entregable de arquisoft con las operaciones básicas en transacciones de una app bancaria.
