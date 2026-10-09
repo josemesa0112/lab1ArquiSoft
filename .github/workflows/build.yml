@@ -3,10 +3,11 @@ name: CI/CD Pipeline
 on:
   #Manually trigger workflow runs
   workflow_dispatch:
-  #Trigger the workflow on push from the main branch
+  #Trigger the workflow on push to the trunk (main) and to the short-lived feature branch
   push:
     branches:
       - main
+      - feature/deploy-render
 jobs:
   #Test's job
   tests:
@@ -110,9 +111,11 @@ jobs:
           #Set artifact name
           name: artifact
           #From this path
-          path: target/lab1arquisoft.jar
+          path: target/lab1ArquiSoft.jar
 
+      #Only the trunk publishes the image that Render deploys
       - name: Build & push Docker image
+        if: github.ref == 'refs/heads/main'
         uses: mr-smithers-excellent/docker-build-push@05b44e1dd9e03f78e8689bd1a61c750f17907ffe # v6.11
         with:
           image: jose2830/lab1arquisoft
@@ -121,3 +124,33 @@ jobs:
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+  #Deploy's job
+  deploy:
+    #Depends on build's job
+    needs: build
+    name: Deploy to Render
+    #Only deploy what gets merged into the trunk
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      #Tell Render to pull jose2830/lab1arquisoft:latest and redeploy
+      - name: Trigger Render deploy
+        run: curl -fsS -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+      #Poll the API until the new deploy answers (free instances take a while to wake up)
+      - name: Smoke test on the cloud
+        env:
+          SERVICE_URL: ${{ vars.RENDER_SERVICE_URL }}
+        run: |
+          sleep 60
+          for i in $(seq 1 30); do
+            if curl -fsS "$SERVICE_URL/api/customers"; then
+              echo
+              echo "Backend is up at $SERVICE_URL"
+              exit 0
+            fi
+            echo "Attempt $i: not ready yet"
+            sleep 10
+          done
+          echo "Backend did not answer in time"
+          exit 1
